@@ -54,7 +54,7 @@ function App() {
             </div>
             <div className='weather-icons'>
               <img src={`http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`}/>  
-              <p><ActualDate/></p>
+              <ActualDate/>
             </div>
             
           </div>
