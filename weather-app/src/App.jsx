@@ -1,11 +1,13 @@
 import { useState } from 'react'
-import ActualDate from './component/ActualDate'
+// import ActualDate from './component/ActualDate'
 import axios from 'axios'
+import ActualDate from './component/ActualDate';
 
 function App() {
 
   const [data ,setData] = useState({})
   const [location ,setLocation] = useState('')
+  const [date, setDate] = useState(new Date().toLocaleString());
 
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=3c9a852f446f98a41bc44a31d093ce81&lang=fr`
 
@@ -14,6 +16,8 @@ function App() {
       axios.get(url).then((res) => {
         console.log(res.data)
         setData(res.data)
+
+        
     })}
     setLocation('')
     }
@@ -50,7 +54,7 @@ function App() {
             </div>
             <div className='weather-icons'>
               <img src={`http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`}/>  
-              <ActualDate />
+              <p><ActualDate/></p>
             </div>
             
           </div>
